@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.progress-primary {
+  progress::-webkit-progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 10px;
+  }
+}
+.progress-danger {
+  progress::-webkit-progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: #f60;
+    border-radius: 10px;
+  }
+}
+
+.progress-danger::-webkit-progress-bar {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+.progress-danger::-webkit-progress-value {
+  background-color: #4caf50;
+  border-radius: 10px;
+}

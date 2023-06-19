@@ -1,0 +1,14 @@
+This is the roadmap for the website Lifescores
+
+This details everything that will go on the website
+
+For now, I am planning on making the website something people can host local competitions.
+
+
+Plans - 
+    1. There will be 2 section of the site.
+        -   The admin site
+        -   The normal site
+    NB:  I am not focused on the admin site for now.
+    2.  So the normal site
+        Mainly 
