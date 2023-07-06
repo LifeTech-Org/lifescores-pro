@@ -14,7 +14,7 @@ export default function Header() {
     router.route.split("/").forEach((route, index) => {
       if (route === "[lsid]") {
         temp.push({
-          name: router.query["lsid"],
+          name: router.query["lsid"]!.toString(),
           link: {
             href: `/c/[lsid]`,
             as: `/c/${router.query["lsid"]}`,
