@@ -577,8 +577,8 @@ export default function MatchesLayout() {
                     </div>
                   </div>
                   <div className="w-24 p-2 flex flex-col justify-center items-center text-xs text-zinc-300 border-l border-zinc-700">
-                    {match.status === "ended" && <div>Ended</div>}
-                    {match.status === "upcoming" && (
+                    {match.status.title === "ended" && <div>Ended</div>}
+                    {match.status.title === "upcoming" && (
                       <>
                         <time className="text-center">
                           {match.details.time}
@@ -588,13 +588,13 @@ export default function MatchesLayout() {
                         </time>
                       </>
                     )}
-                    {match.status === "live" && (
+                    {match.status.title === "live" && (
                       <div className="text-xs text-blue-800 flex gap-2 items-center">
                         <SportsSoccer className="animate-spin text-sm" />
                         <span>Live</span>
                       </div>
                     )}
-                    {match.status === "paused" && <div>Paused</div>}
+                    {match.status.title === "paused" && <div>Paused</div>}
                   </div>
                 </Link>
               </li>

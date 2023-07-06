@@ -41,7 +41,7 @@ export type MatchType = {
   id: string;
   title: string;
   status: {
-    title: "live" | "ended" | "upcoming";
+    title: "live" | "ended" | "upcoming" | "paused";
     substatus:
       | "1st-half-normal-time"
       | "1st-half-added-time"
