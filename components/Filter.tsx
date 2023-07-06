@@ -85,7 +85,7 @@ function Categories({ ispopup }: { ispopup: boolean }) {
       <ul
         className={
           (ispopup
-            ? "w-full flex-1 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-100px)] "
+            ? "w-full flex-1 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-200px)] "
             : "hidden sm:flex sm:flex-col sm:w-full ") + "w-fit gap-2"
         }
       >
@@ -419,7 +419,7 @@ function Locations({ ispopup }: { ispopup: boolean }) {
       <ul
         className={
           (ispopup
-            ? "w-full flex-1 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-100px)] "
+            ? "w-full flex-1 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-200px)] "
             : "hidden sm:flex sm:flex-col sm:w-full ") + "w-fit gap-2"
         }
       >

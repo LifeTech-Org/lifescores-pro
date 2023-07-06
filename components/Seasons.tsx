@@ -21,7 +21,7 @@ export default function Seasons({
       <h3 className="text-zinc-200 text-md py-2 px-4 border-b border-zinc-800">
         Select Season
       </h3>
-      <ul className="">
+      <ul className="flex flex-col overflow-y-auto overflow-x-hidden max-h-[calc(100vh-100px)]">
         {seasons.map((season, index: number) => {
           const isActive = selectedSeason === season;
           return (

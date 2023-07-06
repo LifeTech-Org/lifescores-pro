@@ -70,11 +70,11 @@ export type MatchType = {
     title: string;
     team1: {
       player: { id: string; name: string };
-      minute: string;
+      counts: { minute: string }[];
     }[];
     team2: {
       player: { id: string; name: string };
-      minute: string;
+      counts: { minute: string }[];
     }[];
   }[];
   team1: {

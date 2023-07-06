@@ -7,6 +7,9 @@ import StopCircleOutlinedIcon from "@mui/icons-material/StopCircleOutlined";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import { getTotalTeamGoals } from "@/public/utils/func";
 import FoulCard from "./FoulCard";
+import { useContext } from "react";
+import { PopupContextType } from "@/public/utils/types";
+import { PopupContext } from "@/context";
 export default function Statistics({ match }: { match: MatchType }) {
   const yellowCardsStats = match.stats.find(
     (stat) => stat.title === "Yellow Cards"
@@ -118,8 +121,8 @@ function TeamStat({
   team2: MatchType["team2"];
 }) {
   const [team1Goals, team2Goals] = [
-    getTotalTeamGoals(team1.goals),
-    getTotalTeamGoals(team2.goals),
+    team1.goals.reduce((sum, current) => sum + current.counts.length, 0),
+    team2.goals.reduce((sum, current) => sum + current.counts.length, 0),
   ];
   return (
     <div className="flex justify-between my-4">
@@ -180,8 +183,8 @@ function ScoresStat({
   return (
     <ul
       className={
-        (span === "left" ? "justify-start" : "justify-end") +
-        " flex-1 flex w-full flex-row flex-wrap"
+        (span === "left" ? "items-start" : "items-end") +
+        " flex-1 flex w-full flex-col flex-wrap"
       }
     >
       {goals.map((_goals) => {
@@ -206,11 +209,7 @@ function ScoresStat({
                   {suffix.length > 0 && (
                     <span className="text-blue-800">({suffix})</span>
                   )}
-                  {index < _goals.counts.length - 1 ? (
-                    <span>,</span>
-                  ) : (
-                    <span>&nbsp;&nbsp;</span>
-                  )}
+                  {index < _goals.counts.length - 1 && <span>,</span>}
                 </div>
               );
             })}
@@ -242,15 +241,22 @@ function CardStats({
               <span className="text-zinc-200 font-semibold text-xs underline">
                 {card.player.name}
               </span>
-              <span className="text-zinc-200 text-xs font-semibold">
-                &nbsp; {card.minute}&apos;
-              </span>
+              <ul className="inline-flex text-zinc-200 text-xs font-semibold">
+                {card.counts.map((count, _index) => {
+                  return (
+                    <li key={_index}>
+                      <span>&nbsp;{count.minute}&apos;</span>
+                      {index < cards.length - 1 && <span>,&nbsp;</span>}
+                    </li>
+                  );
+                })}
+              </ul>
 
-              {index < cards.length - 1 && (
+              {/* {index < cards.length - 1 && (
                 <span className="text-zinc-200 text-xs font-semibold">
                   ,&nbsp;&nbsp;
                 </span>
-              )}
+              )} */}
             </div>
           </li>
         );
@@ -268,8 +274,8 @@ function BoxStats({ stats }: { stats: MatchType["stats"] }) {
             <li key={statType.title}>
               <ListStat
                 title={statType.title}
-                team1={statType.team1.length}
-                team2={statType.team2.length}
+                team1={statType.team1}
+                team2={statType.team2}
               />
             </li>
           );
@@ -285,44 +291,54 @@ function ListStat({
   team2,
 }: {
   title: string;
-  team1: number;
-  team2: number;
+  team1: MatchType["stats"][0]["team1"];
+  team2: MatchType["stats"][0]["team2"];
 }) {
-  const base5 = Math.ceil(Math.max(team1, team2) / 5) * 5;
+  const setPopup = useContext<PopupContextType>(PopupContext);
+  const team1Count = team1.reduce(
+    (sum, current) => sum + current.counts.length,
+    0
+  );
+  const team2Count = team2.reduce(
+    (sum, current) => sum + current.counts.length,
+    0
+  );
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-center">
         <div
           className={
             (team1 < team2
-              ? "bg-zinc-900/80 ring-zinc-800"
-              : "bg-blue-800 ring-blue-700") +
-            " h-10 flex  text-zinc-200 items-center justify-center text-lg text-semibold aspect-square rounded-md ring-1"
+              ? "bg-zinc-900/80 ring-zinc-800 hover:bg-zinc-900/50"
+              : "bg-blue-800 ring-blue-700 hover:bg-blue-700/60") +
+            " h-10 flex cursor-pointer  text-zinc-200 items-center justify-center text-lg text-semibold aspect-square rounded-md ring-1"
           }
+          onClick={() => setPopup(<StatsPopup title={title} stats={team1} />)}
         >
-          {team1}
+          {team1Count}
         </div>
         <div className="text-zinc-200 font-semibold text-md">{title}</div>
         <div
           className={
-            (team2 < team1
-              ? "bg-zinc-900/80 ring-zinc-800"
-              : "bg-blue-800 ring-blue-700") +
-            " h-10 flex  text-zinc-200 items-center justify-center text-lg text-semibold aspect-square rounded-md ring-1"
+            (team2Count < team1Count
+              ? "bg-zinc-900/80 ring-zinc-800 hover:bg-zinc-900/50"
+              : "bg-blue-800 ring-blue-700 hover:bg-blue-700/60") +
+            " h-10 flex cursor-pointer  text-zinc-200 items-center justify-center text-lg text-semibold aspect-square rounded-md ring-1"
           }
+          onClick={() => setPopup(<StatsPopup title={title} stats={team2} />)}
         >
-          {team2}
+          {team2Count}
         </div>
       </div>
       <div className="flex gap-4">
         <Progress
-          isDanger={team1 < team2}
-          value={(team2 / (team1 + team2)) * 100}
+          isDanger={team1Count < team2Count}
+          value={(team2Count / (team1Count + team2Count)) * 100}
           position="left"
         />
         <Progress
-          isDanger={team2 < team1}
-          value={(team2 / (team1 + team2)) * 100}
+          isDanger={team2Count < team1Count}
+          value={(team2Count / (team1Count + team2Count)) * 100}
           position="right"
         />
       </div>
@@ -330,7 +346,7 @@ function ListStat({
   );
 }
 
-const Progress = ({
+function Progress({
   isDanger,
   value,
   position,
@@ -338,7 +354,7 @@ const Progress = ({
   isDanger: boolean;
   value: number;
   position: "left" | "right";
-}) => {
+}) {
   return (
     <progress
       className={
@@ -354,4 +370,54 @@ const Progress = ({
       value={value}
     />
   );
-};
+}
+
+function StatsPopup({
+  title,
+  stats,
+}: {
+  title: string;
+  stats: MatchType["stats"][0]["team1"];
+}) {
+  return (
+    <article
+      className={
+        "z-20 bg-zinc-900 !w-full rounded-md ring-1 ring-zinc-800 sm:max-w-sm pb-2"
+      }
+    >
+      <h3 className="text-zinc-200 text-md py-2 px-4 border-b border-zinc-800">
+        {title}
+      </h3>
+      <ul className="flex flex-col overflow-y-auto overflow-x-hidden max-h-[calc(100vh-200px)]">
+        {stats.map((stat, index) => {
+          return (
+            <li key={index}>
+              <div className="flex gap-2 w-full py-1 px-4 hover:bg-zinc-800  justify-between items-center">
+                <div className="flex-1 flex-col justify-center">
+                  <span className="font-semibold text-sm text-zinc-200">
+                    {stat.player.name}
+                  </span>
+                  <ul className="flex flex-wrap ">
+                    {stat.counts.map(({ minute }, index) => {
+                      return (
+                        <li key={index} className="text-zinc-400 text-xs">
+                          <span className="text-xs">{minute}&apos;</span>
+                          {index < stat.counts.length - 1 && (
+                            <span>,&nbsp;</span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div className="font-semibold text-xs text-zinc-200 w-8 aspect-square flex items-center justify-center">
+                  {stat.counts.length}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </article>
+  );
+}
