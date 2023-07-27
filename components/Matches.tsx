@@ -1,6 +1,5 @@
 import { MatchesType } from "@/public/utils/types";
 import { SportsSoccer } from "@mui/icons-material";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function MatchesLayout() {

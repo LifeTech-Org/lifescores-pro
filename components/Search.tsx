@@ -44,6 +44,7 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Manchester United",
+          goals: [],
         },
         team2: {
           img: {
@@ -51,12 +52,19 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Chelsea",
+          goals: [],
         },
         title: "",
         status: {
           title: "live",
           substatus: "1st-half-normal-time",
         },
+        competition: {
+          id: "",
+          name: "",
+          seasons: [],
+        },
+        stats: [],
       },
       {
         details: {
@@ -72,6 +80,7 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Arsenal",
+          goals: [],
         },
         team2: {
           img: {
@@ -79,12 +88,19 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Liverpool",
+          goals: [],
         },
         title: "",
         status: {
           title: "live",
           substatus: "1st-half-normal-time",
         },
+        competition: {
+          id: "",
+          name: "",
+          seasons: [],
+        },
+        stats: [],
       },
       {
         details: {
@@ -100,6 +116,7 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Wolves",
+          goals: [],
         },
         team2: {
           img: {
@@ -107,12 +124,19 @@ export function Search() {
             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
           },
           name: "Newcastle",
+          goals: [],
         },
         title: "",
         status: {
           title: "live",
           substatus: "1st-half-normal-time",
         },
+        competition: {
+          id: "",
+          name: "",
+          seasons: [],
+        },
+        stats: [],
       },
     ],
   });

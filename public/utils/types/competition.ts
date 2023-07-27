@@ -56,7 +56,7 @@ export type MatchType = {
       | "2nd-half-etxra-time-added-time"
       | "penalties";
   };
-  competition?: {
+  competition: {
     id: string;
     name: string;
     seasons: number[];
@@ -66,7 +66,7 @@ export type MatchType = {
     time: string;
     date: string;
   };
-  stats?: {
+  stats: {
     title: string;
     team1: {
       player: { id: string; name: string };
@@ -83,7 +83,7 @@ export type MatchType = {
       src: string;
       alt: string;
     };
-    goals?: {
+    goals: {
       player: { id: string; name: string };
       counts: {
         type: "open play" | "pk" | "own goal" | null;
@@ -97,7 +97,7 @@ export type MatchType = {
       src: string;
       alt: string;
     };
-    goals?: {
+    goals: {
       player: { id: string; name: string };
       counts: {
         type: "open play" | "pk" | "own goal" | null;
