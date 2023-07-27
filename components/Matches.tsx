@@ -3,517 +3,517 @@ import { SportsSoccer } from "@mui/icons-material";
 import Link from "next/link";
 
 export default function MatchesLayout() {
-  const data: MatchesType = { title: "Premier League", matches: [] };
-  // const data: MatchesType = {
-  //   title: "Premier League",
-  //   matches: [
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "04:00 PM",
-  //       },
-  //       status: "upcoming",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         img: {
-  //           alt: "alt",
-  //           src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //         },
-  //         name: "Manchester united",
+  // const data: MatchesType = { title: "Premier League", matches: [] };
+  const data: MatchesType = {
+    title: "Premier League",
+    matches: [
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "04:00 PM",
+        },
+        status: "upcoming",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          img: {
+            alt: "alt",
+            src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+          },
+          name: "Manchester united",
 
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "04:00 PM",
-  //       },
-  //       status: "live",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "04:00 PM",
-  //       },
-  //       status: "ended",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "04:00 PM",
-  //       },
-  //       status: "paused",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "04:00 PM",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "04:00 PM",
-  //       },
-  //       status: "live",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "time",
-  //       },
-  //       status: "ended",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //       },
-  //     },
-  //     {
-  //       id: "match id",
-  //       title: "Match day 1",
-  //       details: {
-  //         date: "15, Sep 2023",
-  //         stadium: "Arena",
-  //         time: "time",
-  //       },
-  //       status: "upcoming",
-  //       competition: {
-  //         id: "compid",
-  //         name: "Premier League",
-  //       },
-  //       location: "Nigeria",
-  //       team1: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
-  //           },
-  //           name: "Manchester united",
-  //         },
-  //         fouls: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Sancho" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
-  //         ],
-  //       },
-  //       team2: {
-  //         details: {
-  //           img: {
-  //             alt: "alt",
-  //             src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
-  //           },
-  //           name: "West ham",
-  //         },
-  //         fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
-  //         goals: [
-  //           {
-  //             player: { id: "playerid", name: "Messi" },
-  //             time: "time",
-  //             type: "open play",
-  //           },
-  //         ],
-  //         offsides: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         redCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //         yellowCards: [
-  //           { player: { id: "playerid", name: "Werner" }, time: "time" },
-  //         ],
-  //       },
-  //     },
-  //   ],
-  // };
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "04:00 PM",
+        },
+        status: "live",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "04:00 PM",
+        },
+        status: "ended",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "04:00 PM",
+        },
+        status: "paused",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "04:00 PM",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "04:00 PM" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "04:00 PM",
+        },
+        status: "live",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "04:00 PM" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "time",
+        },
+        status: "ended",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+        },
+      },
+      {
+        id: "match id",
+        title: "Match day 1",
+        details: {
+          date: "15, Sep 2023",
+          stadium: "Arena",
+          time: "time",
+        },
+        status: "upcoming",
+        competition: {
+          id: "compid",
+          name: "Premier League",
+        },
+        location: "Nigeria",
+        team1: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png",
+            },
+            name: "Manchester united",
+          },
+          fouls: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          goals: [
+            {
+              player: { id: "playerid", name: "Sancho" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Ronaldo" }, time: "time" },
+          ],
+        },
+        team2: {
+          details: {
+            img: {
+              alt: "alt",
+              src: "https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png",
+            },
+            name: "West ham",
+          },
+          fouls: [{ player: { id: "playerid", name: "Werner" }, time: "time" }],
+          goals: [
+            {
+              player: { id: "playerid", name: "Messi" },
+              time: "time",
+              type: "open play",
+            },
+          ],
+          offsides: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          redCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+          yellowCards: [
+            { player: { id: "playerid", name: "Werner" }, time: "time" },
+          ],
+        },
+      },
+    ],
+  };
   return (
     <dl className="flex flex-col w-full  py-2 bg-zinc-900/60">
       <dt className="text-zinc-200 text-md my-2 ml-4">{data.title}</dt>
