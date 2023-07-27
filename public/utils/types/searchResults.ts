@@ -1,3 +1,5 @@
+import { MatchType } from "./competition";
+
 export type SearchResults = {
   team: {
     title: string;
@@ -13,11 +15,5 @@ export type SearchResults = {
       alt: string;
     };
   }[];
-  fixtures: {
-    title: string;
-    img: {
-      src: string;
-      alt: string;
-    };
-  }[];
+  fixtures: MatchType[];
 };
