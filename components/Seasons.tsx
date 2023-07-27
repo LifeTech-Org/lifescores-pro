@@ -7,9 +7,9 @@ export default function Seasons({
   selectedSeason,
   setSelectedSeason,
 }: {
-  seasons: string[];
-  selectedSeason: string;
-  setSelectedSeason: React.Dispatch<React.SetStateAction<string>>;
+  seasons: number[];
+  selectedSeason: number;
+  setSelectedSeason: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const setPopup = useContext<PopupContextType>(PopupContext);
   return (

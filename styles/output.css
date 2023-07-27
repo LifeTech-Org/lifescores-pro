@@ -589,6 +589,10 @@ video {
   z-index: 20;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -612,6 +616,11 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .-ml-0 {
@@ -644,6 +653,18 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.box-border {
+  box-sizing: border-box;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -709,6 +730,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .max-h-\[calc\(100vh-100px\)\] {
@@ -968,6 +993,10 @@ video {
   background-color: rgb(9 9 11 / 0.2);
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -1017,6 +1046,11 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pb-2 {
@@ -1130,8 +1164,26 @@ video {
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 
+.\!text-zinc-200 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(228 228 231 / var(--tw-text-opacity)) !important;
+}
+
 .underline {
   text-decoration-line: underline;
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline-1 {
+  outline-width: 1px;
+}
+
+.outline-zinc-800 {
+  outline-color: #27272a;
 }
 
 .ring-1 {

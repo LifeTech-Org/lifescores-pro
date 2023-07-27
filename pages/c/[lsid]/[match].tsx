@@ -1,22 +1,17 @@
 import Layout from "@/components/Layout";
 import LineUps from "@/components/LineUps";
-import Seasons from "@/components/Seasons";
 import Statistics from "@/components/Statistics";
 import TimeLine from "@/components/Timline";
-import { PopupContext } from "@/context";
-import { PopupContextType } from "@/public/utils/types";
 import { MatchType } from "@/public/utils/types/competition";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 export default function Match() {
-  const setPopup = useContext<PopupContextType>(PopupContext);
   const [tabIndex, setTabIndex] = useState(2);
   const match: MatchType = {
     competition: {
       id: "",
       name: "Premier League",
-      seasons: ["2023", "2022"],
+      seasons: [2023, 2022],
     },
     id: "",
     details: {
@@ -185,9 +180,7 @@ export default function Match() {
       element: <Statistics match={match} />,
     },
   ];
-  const [selectedSeason, setSelectedSeason] = useState(
-    match.competition.seasons[0]
-  );
+
   return (
     <div className="flex flex-col max-h-[calc(100vh-104px)] sm:max-h-[calc(100vh-56px)]">
       <ul className="flex items-center  h-12 bg-zinc-900/80 w-full min-h-[48px] ">
@@ -207,23 +200,6 @@ export default function Match() {
             </button>
           </li>
         ))}
-        <li className="mr-4">
-          <button
-            className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm rounded-md h-8 px-4"
-            onClick={() =>
-              setPopup(
-                <Seasons
-                  seasons={match.competition.seasons}
-                  selectedSeason={selectedSeason}
-                  setSelectedSeason={setSelectedSeason}
-                />
-              )
-            }
-          >
-            <span>{selectedSeason}</span>
-            <ArrowForwardIosIcon className="text-sm" />
-          </button>
-        </li>
       </ul>
       <div className="flex-1 flex justify-center max-h-[calc(100vh-152px)] sm:max-h-[calc(100vh-104px)] overflow-auto px-4 relative">
         {tabs[tabIndex].element}

@@ -41,7 +41,7 @@ export type MatchType = {
   id: string;
   title: string;
   status: {
-    title: "live" | "ended" | "upcoming" | "paused";
+    title: "live" | "ended" | "upcoming" | "paused" | "postponed";
     substatus:
       | "1st-half-normal-time"
       | "1st-half-added-time"
@@ -59,7 +59,7 @@ export type MatchType = {
   competition: {
     id: string;
     name: string;
-    seasons: string[];
+    seasons: number[];
   };
   details: {
     stadium: string;

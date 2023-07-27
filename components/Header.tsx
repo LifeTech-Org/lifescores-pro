@@ -7,22 +7,22 @@ import { useEffect, useState } from "react";
 export default function Header() {
   const router = useRouter();
   const [navigations, setNavigations] = useState<NavigationType[]>([]);
-  console.log(router);
-  console.log(navigations);
   useEffect(() => {
-    const temp: NavigationType[] = [];
-    router.route.split("/").forEach((route, index) => {
-      if (route === "[lsid]") {
-        temp.push({
-          name: router.query["lsid"]!.toString(),
-          link: {
-            href: `/c/[lsid]`,
-            as: `/c/${router.query["lsid"]}`,
-          },
-        });
-      }
-    });
-    setNavigations(temp);
+    if (router.isReady) {
+      const temp: NavigationType[] = [];
+      router.route.split("/").forEach((route, index) => {
+        if (route === "[lsid]") {
+          temp.push({
+            name: router.query["lsid"]!.toString(),
+            link: {
+              href: `/c/[lsid]`,
+              as: `/c/${router.query["lsid"]}`,
+            },
+          });
+        }
+      });
+      setNavigations(temp);
+    }
   }, [router]);
   return (
     <header className="h-14 min-h-[56px] flex items-center justify-between px-4 text-white">

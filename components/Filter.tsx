@@ -36,7 +36,12 @@ export default function Filter() {
           <Calendar />
         </div>
       </div>
-      <Search />
+      <div
+        className="hidden sm:flex w-full bg-zinc-900  rounded-md text-xs cursor-pointer mx-4 p-3 text-zinc-200"
+        onClick={() => setPopup(<Search />)}
+      >
+        Search
+      </div>
       <div className="relative sm:w-full">
         <button
           className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibo rounded-md sm:hidden h-8 px-4"
@@ -60,7 +65,10 @@ export default function Filter() {
 
       <div className="sm:hidden flex-1"></div>
 
-      <button className="sm:hidden flex items-center justify-center cursor-pointer aspect-square rounded-full hover:bg-zinc-800 w-10 ">
+      <button
+        className="sm:hidden flex items-center justify-center cursor-pointer aspect-square rounded-full hover:bg-zinc-800 w-10 "
+        onClick={() => setPopup(<Search />)}
+      >
         <SearchIcon className="text-white" />
       </button>
     </aside>
