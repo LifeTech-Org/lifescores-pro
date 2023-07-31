@@ -22,7 +22,7 @@ export default function Filter() {
   const setPopup = useContext<PopupContextType>(PopupContext);
 
   return (
-    <aside className="flex w-full px-4 sm:px-0 h-12 items-center sm:flex-col sm:h-full sm:py-4  sm:w-72 gap-4 overflow-y-auto overflow-x-hidden sm:max-h-[calc(100vh-56px)]">
+    <aside className="flex overflow-y-hidden w-full px-4 sm:px-0 h-12 items-center sm:flex-col sm:h-full sm:py-4  sm:w-72 gap-4 sm:overflow-y-auto overflow-x-hidden sm:max-h-[calc(100vh-56px)]">
       <div className="w-fit sm:w-full">
         <div className="sm:hidden">
           <button
@@ -36,34 +36,38 @@ export default function Filter() {
           <Calendar />
         </div>
       </div>
-      <div
-        className="hidden sm:flex w-full bg-zinc-900  rounded-md text-xs cursor-pointer mx-4 p-3 text-zinc-200"
-        onClick={() => setPopup(<Search />)}
-      >
-        Search
-      </div>
-      <div className="relative sm:w-full">
-        <button
-          className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibo rounded-md sm:hidden h-8 px-4"
-          onClick={() => setPopup(<Categories ispopup={true} />)}
+      <div className="hidden sm:flex  w-full">
+        <div
+          className="bg-zinc-900 flex-1  rounded-md text-xs cursor-pointer mx-4 p-3 text-zinc-200"
+          onClick={() => setPopup(<Search />)}
         >
-          <span>{router.query.category || "Popular"}</span>
-          <ArrowForwardIosIcon className="text-sm" />
-        </button>
-        <Categories ispopup={false} />
+          Search
+        </div>
       </div>
-      <div className="relative sm:w-full">
-        <button
-          className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibo rounded-md sm:hidden h-8 px-4"
-          onClick={() => setPopup(<Locations ispopup={true} />)}
-        >
-          <span>{router.query.location || "International"}</span>
-          <ArrowForwardIosIcon className="text-sm" />
-        </button>
-        <Locations ispopup={false} />
+      <div className="flex flex-1 gap-4 overflow-x-auto overflow-y-hidden sm:flex-col sm:overflow-visible sm:h-fit sm:w-full">
+        <div className="relative sm:w-full">
+          <button
+            className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibold rounded-md sm:hidden h-8 px-4"
+            onClick={() => setPopup(<Categories ispopup={true} />)}
+          >
+            <span>{router.query.category || "Popular"}</span>
+            <ArrowForwardIosIcon className="text-sm" />
+          </button>
+          <Categories ispopup={false} />
+        </div>
+        <div className="relative sm:w-full">
+          <button
+            className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibold rounded-md sm:hidden h-8 px-4"
+            onClick={() => setPopup(<Locations ispopup={true} />)}
+          >
+            <span>{router.query.location || "International"}</span>
+            <ArrowForwardIosIcon className="text-sm" />
+          </button>
+          <Locations ispopup={false} />
+        </div>
       </div>
 
-      <div className="sm:hidden flex-1"></div>
+      {/* <div className="sm:hidden flex-1"></div> */}
 
       <button
         className="sm:hidden flex items-center justify-center cursor-pointer aspect-square rounded-full hover:bg-zinc-800 w-10 "
