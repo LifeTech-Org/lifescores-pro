@@ -218,7 +218,7 @@ function TeamSearchResults({ list }: { list: SearchResults["team"] }) {
 
 function FixturesSearchResults({ list }: { list: SearchResults["fixtures"] }) {
   return (
-    <article className="w-full">
+    <article className="w-full mt-2">
       <h3 className="text-zinc-200 font-semibold text-md mx-4">Fixtures</h3>
       <ul className="flex flex-col mt-2 ">
         {list.map((fixture, index) => (
@@ -252,7 +252,7 @@ function FixturesSearchResults({ list }: { list: SearchResults["fixtures"] }) {
           </li>
         ))}
       </ul>
-      <div className="flex w-full">
+      <div className="flex w-full mt-1.5">
         <button className="mt-1 mx-4 text-sm flex-1 flex gap-2 justify-center items-center h-8 rounded-md ring-1 ring-zinc-800 bg-zinc-900 hover:bg-zinc-950 text-zinc-200">
           <span>Show more</span>
           <ArrowDownward />

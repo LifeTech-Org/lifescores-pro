@@ -3,6 +3,7 @@ import {
   getDatesInMonth,
   getNextDates,
   getPreviousDates,
+  getYears,
 } from "@/public/utils/func";
 import {
   ArrowBack,
@@ -31,6 +32,9 @@ export default function Calendar() {
     date.getMonth(),
     date.getFullYear(),
   ];
+
+  const years = getYears();
+
   useEffect(() => {
     setDates([
       ...getPreviousDates(_date),
@@ -49,8 +53,41 @@ export default function Calendar() {
         >
           <NavigateBefore />
         </button>
-        <div className="flex-1 flex justify-center text-xs font-bold text-zinc-200">
-          {months[_date.getMonth()] + " " + _date.getFullYear()}
+        <div className="flex-1 gap-1.5 flex justify-center text-xs font-bold text-zinc-200">
+          {/* {months[_date.getMonth()] + " " + _date.getFullYear()} */}
+          <select
+            onChange={(e) => {
+              set_Date(
+                new Date(
+                  _date.getFullYear(),
+                  e.target.selectedIndex,
+                  _date.getDate()
+                )
+              );
+            }}
+            value={months[_date.getMonth()]}
+            className="bg-transparent text-zinc-200"
+          >
+            {months.map((month, index) => (
+              <option key={index} value={month}>
+                {month}
+              </option>
+            ))}
+          </select>
+          <select
+            onChange={(e) => {
+              const year = parseInt(e.target.value);
+              set_Date(new Date(year, _date.getMonth() - 1, _date.getDate()));
+            }}
+            value={_date.getFullYear()}
+            className="bg-transparent text-zinc-200"
+          >
+            {years.reverse().map((year, index) => (
+              <option key={index} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
         </div>
         <button
           className="aspect-square rounded-full -mr-2 p-1 hover:bg-zinc-800 text-xs text-zinc-200"
