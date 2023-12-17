@@ -1,16 +1,16 @@
-import { MatchType } from "@/public/utils/types/competition";
+import { TMatch } from "@/app/utils/types/competition";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import UpcomingOutlinedIcon from "@mui/icons-material/UpcomingOutlined";
 import StopCircleOutlinedIcon from "@mui/icons-material/StopCircleOutlined";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
-import { getTotalTeamGoals } from "@/public/utils/func";
-import FoulCard from "./FoulCard";
+import { getTotalTeamGoals } from "@/app/utils/func";
+import FoulCard from "./foulCard";
 import { useContext } from "react";
-import { PopupContextType } from "@/public/utils/types";
+import { PopupContextType } from "@/app/utils/types";
 import { PopupContext } from "@/context";
-export default function Statistics({ match }: { match: MatchType }) {
+export default function Statistics({ match }: { match: TMatch }) {
   const yellowCardsStats = match.stats.find(
     (stat) => stat.title === "Yellow Cards"
   )!;
@@ -117,8 +117,8 @@ function TeamStat({
   team1,
   team2,
 }: {
-  team1: MatchType["team1"];
-  team2: MatchType["team2"];
+  team1: TMatch["team1"];
+  team2: TMatch["team2"];
 }) {
   const [team1Goals, team2Goals] = [
     team1.goals.reduce((sum, current) => sum + current.counts.length, 0),
@@ -177,7 +177,7 @@ function ScoresStat({
   goals,
   span,
 }: {
-  goals: MatchType["team1"]["goals"];
+  goals: TMatch["team1"]["goals"];
   span: "left" | "right";
 }) {
   return (
@@ -198,8 +198,8 @@ function ScoresStat({
                 goal.type === "own goal"
                   ? "OG"
                   : goal.type === "pk"
-                  ? "PK"
-                  : "";
+                    ? "PK"
+                    : "";
               return (
                 <div
                   className="inline-flex text-zinc-200 text-xs font-semibold"
@@ -224,7 +224,7 @@ function CardStats({
   cards,
   span,
 }: {
-  cards: MatchType["stats"][0]["team1"];
+  cards: TMatch["stats"][0]["team1"];
   span: "left" | "right";
 }) {
   return (
@@ -265,7 +265,7 @@ function CardStats({
   );
 }
 
-function BoxStats({ stats }: { stats: MatchType["stats"] }) {
+function BoxStats({ stats }: { stats: TMatch["stats"] }) {
   return (
     <div className="bg-zinc-900/80 rounded-md ring-1 ring-zinc-800 p-4">
       <ul className="flex flex-col gap-4">
@@ -291,8 +291,8 @@ function ListStat({
   team2,
 }: {
   title: string;
-  team1: MatchType["stats"][0]["team1"];
-  team2: MatchType["stats"][0]["team2"];
+  team1: TMatch["stats"][0]["team1"];
+  team2: TMatch["stats"][0]["team2"];
 }) {
   const setPopup = useContext<PopupContextType>(PopupContext);
   const team1Count = team1.reduce(
@@ -363,8 +363,8 @@ function Progress({
             ? "progress-danger-left"
             : "progress-danger-right"
           : position === "left"
-          ? "progress-primary-left"
-          : "progress-primary-right") + " flex-1 rounded-full h-2"
+            ? "progress-primary-left"
+            : "progress-primary-right") + " flex-1 rounded-full h-2"
       }
       max={100}
       value={value}
@@ -377,7 +377,7 @@ function StatsPopup({
   stats,
 }: {
   title: string;
-  stats: MatchType["stats"][0]["team1"];
+  stats: TMatch["stats"][0]["team1"];
 }) {
   return (
     <article

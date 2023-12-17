@@ -1,4 +1,4 @@
-import { SearchResults } from "@/public/utils/types";
+import { SearchResults } from "@/app/utils/types";
 import { ArrowDownward, SearchRounded } from "@mui/icons-material";
 import Link from "next/link";
 import { useState } from "react";

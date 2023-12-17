@@ -1,5 +1,5 @@
 import { PopupContext } from "@/context";
-import { PopupContextType } from "@/public/utils/types";
+import { PopupContextType } from "@/app/utils/types";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import React, { useContext } from "react";
 export default function Seasons({

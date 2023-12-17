@@ -1,10 +1,10 @@
-import { months } from "@/public/utils/data";
+import { months } from "@/app/utils/data";
 import {
   getDatesInMonth,
   getNextDates,
   getPreviousDates,
   getYears,
-} from "@/public/utils/func";
+} from "@/app/utils/func";
 import {
   ArrowBack,
   ArrowForward,
@@ -12,11 +12,11 @@ import {
   NavigateBefore,
 } from "@mui/icons-material";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Calendar() {
-  const router = useRouter();
+  const query = useParams();
   // I am using two declaration for date because I need it in case I want previous or next month without actually selcteting a date yet
   const today = new Date();
   const [date, setDate] = useState(today);
@@ -120,7 +120,7 @@ export default function Calendar() {
             <Link
               href={{
                 query: {
-                  ...router.query,
+                  ...query,
                   date: `${thisYear}-${thisMonth}-${thisDate}`,
                 },
               }}
@@ -132,8 +132,8 @@ export default function Calendar() {
                     ? "text-white font-semibold "
                     : "text-zinc-400 ") +
                   (selectedDate === thisDate &&
-                  selectedMonth === thisMonth &&
-                  selectedYear === thisYear
+                    selectedMonth === thisMonth &&
+                    selectedYear === thisYear
                     ? "!text-white font-bold bg-blue-800 "
                     : "hover:bg-zinc-800 ") +
                   "aspect-square text-xs w-full rounded-sm"

@@ -1,4 +1,5 @@
-type Player = {
+type TPlayer = {
+  id: string;
   name: string;
   age: number;
   img: {
@@ -16,7 +17,7 @@ type TeamType = {
     src: string;
     alt: string;
   };
-  players: Player[];
+  players: TPlayer[];
 };
 
 // export type MatchTeamType = {
@@ -37,7 +38,7 @@ type TeamType = {
 //   }[];
 // };
 
-export type MatchType = {
+export type TMatch = {
   id: string;
   title: string;
   location: string;
@@ -107,7 +108,12 @@ export type MatchType = {
   };
 };
 
+export type TCompetition = {
+  id: string;
+  name: string;
+};
+
 export type MatchesType = {
   title: string;
-  matches: MatchType[];
+  matches: TMatch[];
 };

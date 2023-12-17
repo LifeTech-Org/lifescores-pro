@@ -1,24 +1,23 @@
-import { categories } from "@/public/utils/data";
+import { categories } from "@/app/utils/data";
 import {
   LocationType,
-  LocationsType,
   PopupContextType,
-} from "@/public/utils/types";
+} from "@/app/utils/types";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
-import Calendar from "./Calendar";
-import { Search } from "./Search";
-import { useRouter } from "next/router";
+import { Search } from "./search";
+import { useParams, useRouter } from "next/navigation";
 import LaunchIcon from "@mui/icons-material/Launch";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
 import { PopupContext } from "@/context";
+import { TCompetition } from "@/app/utils/types/competition";
+import Calendar from "./calendar";
 
 export default function Filter() {
-  const router = useRouter();
+  const query = useParams();
   const setPopup = useContext<PopupContextType>(PopupContext);
 
   return (
@@ -50,7 +49,7 @@ export default function Filter() {
             className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibold rounded-md sm:hidden h-8 px-4"
             onClick={() => setPopup(<Categories ispopup={true} />)}
           >
-            <span>{router.query.category || "Popular"}</span>
+            <span>{query.category || "Popular"}</span>
             <ArrowForwardIosIcon className="text-sm" />
           </button>
           <Categories ispopup={false} />
@@ -58,12 +57,12 @@ export default function Filter() {
         <div className="relative sm:w-full">
           <button
             className="flex items-center gap-2 bg-zinc-800/60 ring-1  ring-zinc-800 hover:bg-zinc-800 text-zinc-200 text-sm font-semibold rounded-md sm:hidden h-8 px-4"
-            onClick={() => setPopup(<Locations ispopup={true} />)}
+            onClick={() => setPopup(<Competitions ispopup={true} />)}
           >
-            <span>{router.query.location || "International"}</span>
+            <span>{query.location || "International"}</span>
             <ArrowForwardIosIcon className="text-sm" />
           </button>
-          <Locations ispopup={false} />
+          <Competitions ispopup={false} />
         </div>
       </div>
 
@@ -81,6 +80,7 @@ export default function Filter() {
 
 function Categories({ ispopup }: { ispopup: boolean }) {
   const router = useRouter();
+  const query = useParams();
   return (
     <article
       className={
@@ -102,11 +102,11 @@ function Categories({ ispopup }: { ispopup: boolean }) {
         }
       >
         {categories.map(({ text, to }) => {
-          const isActive = router.query.category === text;
+          const isActive = query.category === text;
           return (
             <li key={text} className="w-full h-full">
               <Link
-                href={{ query: { ...router.query, category: text } }}
+                href={{ query: { ...query, category: text } }}
                 className={
                   (isActive ? "!text-blue-800 font-semibold " : "") +
                   (ispopup
@@ -131,290 +131,19 @@ function Categories({ ispopup }: { ispopup: boolean }) {
   );
 }
 
-function Locations({ ispopup }: { ispopup: boolean }) {
-  const [locations, setLocations] = useState<LocationsType>([
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: [...new Array(6)]
-        .map(() => Math.floor(Math.random() * 10))
-        .join(""),
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: "Ghana",
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: "France",
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: "Portugal",
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-    {
-      name: "England",
-      to: "",
-      competitions: [
-        { name: "League 1", to: "/" },
-        { name: "League 2", to: "/" },
-        { name: "League 3", to: "/" },
-      ],
-    },
-  ]);
-  const [currentShowingLocationIndex, setCurrentShowingLocationIndex] =
-    useState<null | number>(0);
+function Competitions({ ispopup }: { ispopup: boolean }) {
+  const [competitions, setCompetitions] = useState<TCompetition[]>([{
+    id: "1",
+    name: "Premier League"
+  }, {
+    id: "2",
+    name: "Champions League"
+  }, {
+    id: "3",
+    name: "Laliga"
+  }]);
   const router = useRouter();
+  const query = useParams();
   return (
     <article
       className={
@@ -432,52 +161,49 @@ function Locations({ ispopup }: { ispopup: boolean }) {
         className={
           (ispopup
             ? "w-full flex-1 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-200px)] "
-            : "hidden sm:flex sm:flex-col sm:w-full ") + "w-fit gap-2"
+            : "hidden sm:flex sm:flex-col sm:w-full ") + "w-fit"
         }
       >
-        {locations.map(({ name, to }, index) => {
-          const isActive = router.query.location === name;
+        {competitions.map(({ name, id }, index) => {
+          const isActive = query.location === name;
           return (
             <li key={name} className="w-full h-full relative">
               <Link
-                href={{
-                  pathname: "/",
-                  query: { ...router.query, location: name },
-                }}
+                href={`/c/${id}`}
                 className={
                   (isActive ? "!text-blue-800 font-semibold " : "") +
                   (ispopup
-                    ? "hover:bg-zinc-800 py-4 "
-                    : "hover:bg-zinc-900 py-2 ") +
-                  "text-sm inline-flex w-full h-full px-4 text-zinc-200 justify-between items-center"
+                    ? "hover:bg-zinc-800 "
+                    : "hover:bg-zinc-900 ") +
+                  "text-sm flex w-full h-full p-4 text-zinc-200 justify-between items-center"
                 }
                 onClick={() => {
-                  setCurrentShowingLocationIndex((current) =>
-                    current === index ? null : index
-                  );
+                  // setCurrentShowingLocationIndex((current) =>
+                  //   current === index ? null : index
+                  // );
                 }}
               >
-                <div className="flex items-center gap-2">
-                  <span>{name}</span>
-                </div>
+                <span>{name}</span>
+                {/* <div
+                  className="w-8 h-8  right-4 top-0 flex items-center justify-center text-zinc-200 rounded-md hover:bg-zinc-700 cursor-pointer"
+                  onClick={(e) => {
+                    setCurrentShowingLocationIndex((current) =>
+                      current === index ? null : index
+                    );
+                    e.stopPropagation();
+                  }}
+                >
+                  {currentShowingLocationIndex === index ? (
+                    <ExpandMoreIcon className="text-md " />
+                  ) : (
+                    <ArrowForwardIosIcon className="text-sm" />
+                  )}
+                </div> */}
               </Link>
-              <div
-                className="w-8 h-8 absolute  right-4 top-0 flex items-center justify-center text-zinc-200 rounded-md hover:bg-zinc-700 cursor-pointer"
-                onClick={() => {
-                  setCurrentShowingLocationIndex((current) =>
-                    current === index ? null : index
-                  );
-                }}
-              >
-                {currentShowingLocationIndex === index ? (
-                  <ExpandMoreIcon className="text-md " />
-                ) : (
-                  <ArrowForwardIosIcon className="text-sm" />
-                )}
-              </div>
-              {currentShowingLocationIndex === index && (
+
+              {/* {currentShowingLocationIndex === index && (
                 <LocationCompetitons locationName={name} />
-              )}
+              )} */}
             </li>
           );
         })}
@@ -488,6 +214,7 @@ function Locations({ ispopup }: { ispopup: boolean }) {
 
 function LocationCompetitons({ locationName }: { locationName: string }) {
   const router = useRouter();
+  const query = useParams();
   const [competitions, setCompetitions] = useState<
     LocationType["competitions"]
   >([
@@ -495,15 +222,15 @@ function LocationCompetitons({ locationName }: { locationName: string }) {
     { name: `${locationName} 2`, to: "c2" },
     { name: `${locationName} 3`, to: "c3" },
   ]);
-  useEffect(() => {}, [locationName]);
+  useEffect(() => { }, [locationName]);
   return (
     <ul className="mx-6">
       {competitions.map(({ name, to }) => {
-        const isActive = router.query.lsid === name;
+        const isActive = query.id === name;
         return (
           <li key={name}>
             <Link
-              href={`/c/[lsid]`}
+              href={`/c/[id]`}
               as={`/c/${name}`}
               className={
                 (isActive ? "!text-blue-800 " : "") +

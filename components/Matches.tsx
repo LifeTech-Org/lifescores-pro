@@ -1,4 +1,4 @@
-import { MatchesType } from "@/public/utils/types";
+import { MatchesType } from "@/app/utils/types";
 import { SportsSoccer } from "@mui/icons-material";
 import Link from "next/link";
 
@@ -76,8 +76,7 @@ export default function MatchesLayout() {
             return (
               <li key={match.id} className="w-full">
                 <Link
-                  href={`/c/[lsid]/[match]`}
-                  as={`/c/${match.competition.id}/match1`}
+                  href={`/m/${match.id}`}
                   className="flex p-4 hover:bg-zinc-800 cursor-pointer sm:mx-4 sm:rounded-md"
                 >
                   <div className="flex-1 flex flex-col gap-2">

@@ -1,4 +1,4 @@
-import { PopupContextType } from "@/public/utils/types";
+import { PopupContextType } from "@/app/utils/types";
 
 export default function Popup({
   element,

@@ -1,4 +1,4 @@
-import { MatchType } from "./competition";
+import { TMatch } from "./competition";
 
 export type SearchResults = {
   team: {
@@ -15,5 +15,5 @@ export type SearchResults = {
       alt: string;
     };
   }[];
-  fixtures: MatchType[];
+  fixtures: TMatch[];
 };
