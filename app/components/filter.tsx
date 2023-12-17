@@ -12,7 +12,7 @@ import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
-import { PopupContext } from "@/context";
+import { PopupContext } from "@/app/utils/context";
 import { TCompetition } from "@/app/utils/types/competition";
 import Calendar from "./calendar";
 

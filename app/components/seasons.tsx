@@ -1,4 +1,4 @@
-import { PopupContext } from "@/context";
+import { PopupContext } from "@/app/utils/context";
 import { PopupContextType } from "@/app/utils/types";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import React, { useContext } from "react";

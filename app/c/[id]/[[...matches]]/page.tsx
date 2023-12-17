@@ -1,5 +1,5 @@
 "use client"
-import MatchesLayout from "@/components/matches";
+import MatchesLayout from "@/app/components/matches";
 import { useParams } from "next/navigation";
 
 export default function Matches() {

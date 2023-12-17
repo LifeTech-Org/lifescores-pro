@@ -2,10 +2,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { useState } from 'react';
-import { PopupContext } from '@/context';
-import { Header } from '@/components';
-import Popup from '@/components/popup';
-import Filter from '@/components/filter';
+import { PopupContext } from '@/app/utils/context';
+import { Header } from '@/app/components';
+import Popup from '@/app/components/popup';
+import Filter from '@/app/components/filter';
 // export const metadata: Metadata = {
 //   title: 'Blitz',
 //   description: 'Fast and secure',

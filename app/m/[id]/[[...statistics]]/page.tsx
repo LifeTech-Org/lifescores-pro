@@ -8,9 +8,9 @@ import StopCircleOutlinedIcon from "@mui/icons-material/StopCircleOutlined";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import { getTotalTeamGoals } from "@/app/utils/func";
 import { useContext } from "react";
-import { PopupContextType } from "@/app/utils/types";
-import { PopupContext } from "@/context";
-import FoulCard from "@/components/foulCard";
+import { PopupContextType } from "@/app/utils/types"
+import { PopupContext } from "@/app/utils/context";
+import FoulCard from "@/app/components/foulCard";
 export default function Statistics() {
     const match: TMatch = {
         competition: {

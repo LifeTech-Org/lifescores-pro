@@ -9,7 +9,7 @@ import { getTotalTeamGoals } from "@/app/utils/func";
 import FoulCard from "./foulCard";
 import { useContext } from "react";
 import { PopupContextType } from "@/app/utils/types";
-import { PopupContext } from "@/context";
+import { PopupContext } from "@/app/utils/context";
 export default function Statistics({ match }: { match: TMatch }) {
   const yellowCardsStats = match.stats.find(
     (stat) => stat.title === "Yellow Cards"

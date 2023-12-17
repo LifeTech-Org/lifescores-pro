@@ -1,5 +1,5 @@
 "use client"
-import MatchesLayout from "@/components/matches";
+import MatchesLayout from "@/app/components/matches";
 
 export default function Home() {
     return (

@@ -1,6 +1,6 @@
 "use client"
-import Seasons from "@/components/seasons";
-import { PopupContext } from "@/context";
+import Seasons from "@/app/components/seasons";
+import { PopupContext } from "@/app/utils/context";
 import { PopupContextType } from "@/app/utils/types";
 import Link from "next/link";
 import { useParams } from "next/navigation";
