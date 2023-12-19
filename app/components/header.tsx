@@ -1,11 +1,13 @@
 import { NavigationType } from "@/app/utils/types";
-import { ArrowBackIos, ArrowLeft } from "@mui/icons-material";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Header() {
+export default function Header({ home, leadingAction }: { home: string; leadingAction: JSX.Element }) {
   const router = useRouter();
+  const path = usePathname();
+  const params = useParams();
+  // console.log(path)
   const [navigations, setNavigations] = useState<NavigationType[]>([]);
   useEffect(() => {
     // if (router.isReady) {
@@ -15,8 +17,8 @@ export default function Header() {
     //       temp.push({
     //         name: router.query["id"]!.toString(),
     //         link: {
-    //           href: `/c/[id]`,
-    //           as: `/c/${router.query["id"]}`,
+    //           href: `/u/c/[id]`,
+    //           as: `/u/c/${router.query["id"]}`,
     //         },
     //       });
     //     }
@@ -27,10 +29,10 @@ export default function Header() {
   return (
     <header className="h-14 min-h-[56px] flex items-center justify-between px-4 text-white">
       <div className="flex gap-3 items-center">
-        <Link href="/">
+        <Link href={home}>
           <h3 className="font-semibold text-2xl">Lifescores</h3>
         </Link>
-        {navigations.map((navigation, index) => {
+        {/* {navigations.map((navigation, index) => {
           return (
             <Link
               key={index}
@@ -41,8 +43,10 @@ export default function Header() {
               {navigation.name}
             </Link>
           );
-        })}
+        })} */}
+
       </div>
+      {leadingAction}
     </header>
   );
 }

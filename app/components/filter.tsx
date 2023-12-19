@@ -169,7 +169,7 @@ function Competitions({ ispopup }: { ispopup: boolean }) {
           return (
             <li key={name} className="w-full h-full relative">
               <Link
-                href={`/c/${id}`}
+                href={`/u/c/${id}`}
                 className={
                   (isActive ? "!text-blue-800 font-semibold " : "") +
                   (ispopup
@@ -230,8 +230,8 @@ function LocationCompetitons({ locationName }: { locationName: string }) {
         return (
           <li key={name}>
             <Link
-              href={`/c/[id]`}
-              as={`/c/${name}`}
+              href={`/u/c/[id]`}
+              as={`/u/c/${name}`}
               className={
                 (isActive ? "!text-blue-800 " : "") +
                 "inline-flex w-full py-2 font-semibold text-xs hover:text-blue-800 text-zinc-400 justify-between items-center"

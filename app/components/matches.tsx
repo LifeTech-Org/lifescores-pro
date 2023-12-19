@@ -76,7 +76,7 @@ export default function MatchesLayout() {
             return (
               <li key={match.id} className="w-full">
                 <Link
-                  href={`/m/${match.id}`}
+                  href={`/u/m/${match.id}`}
                   className="flex p-4 hover:bg-zinc-800 cursor-pointer sm:mx-4 sm:rounded-md"
                 >
                   <div className="flex-1 flex flex-col gap-2">

@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <li className="flex-1 justify-center items-center flex h-full">
                 <Link
                     className="w-full text-zinc-200 text-sm font-semibold text-center hover:text-blue-800"
-                    href={{ pathname: `/c/${id}` }}
+                    href={{ pathname: `/u/c/${id}` }}
                 >
                     Matches
                 </Link>
@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <li className="flex-1 justify-center items-center flex h-full">
                 <Link
                     className="w-full text-zinc-200 text-sm font-semibold text-center hover:text-blue-800"
-                    href={{ pathname: `/c/${id}/table` }}
+                    href={{ pathname: `/u/c/${id}/table` }}
                 >
                     Table
                 </Link>
@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <li className="flex-1 justify-center items-center flex h-full">
                 <Link
                     className="w-full text-zinc-200 text-sm font-semibold text-center hover:text-blue-800"
-                    href={{ pathname: `/c/${id}/players` }}
+                    href={{ pathname: `/u/c/${id}/players` }}
                 >
                     Players
                 </Link>

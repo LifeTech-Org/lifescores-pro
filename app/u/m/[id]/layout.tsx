@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         // }
                         // onClick={() => setTabIndex(tab.index)}
                         className="text-zinc-200 w-full text-sm font-semibold text-center hover:text-blue-800"
-                        href={`/m/${id}/${tab}`}
+                        href={`/u/m/${id}/${tab}`}
                     >
                         {tab}
                     </Link>
