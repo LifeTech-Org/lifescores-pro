@@ -133,14 +133,29 @@ function Categories({ ispopup }: { ispopup: boolean }) {
 
 function Competitions({ ispopup }: { ispopup: boolean }) {
   const [competitions, setCompetitions] = useState<TCompetition[]>([{
+    name: "Premier League",
+    currentSeason: "2021/2022",
     id: "1",
-    name: "Premier League"
+    img: "/pl.png",
+    status: "active"
   }, {
+    name: "Laliga",
+    currentSeason: "2021/2022",
     id: "2",
-    name: "Champions League"
+    img: "/pl.png",
+    status: "active"
   }, {
+    name: "Champions League",
+    currentSeason: "2021/2022",
     id: "3",
-    name: "Laliga"
+    img: "/cl.png",
+    status: "active"
+  }, {
+    name: "Serie A",
+    currentSeason: "2021/2022",
+    id: "4",
+    img: "/sa.png",
+    status: "active"
   }]);
   const router = useRouter();
   const query = useParams();
