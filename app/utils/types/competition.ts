@@ -2,10 +2,7 @@ type TPlayer = {
   id: string;
   name: string;
   age: number;
-  img: {
-    src: string;
-    alt: string;
-  };
+  img: string;
   goals: number;
   yellowCards: number;
   redCards: number;
@@ -13,10 +10,7 @@ type TPlayer = {
 type TeamType = {
   id: string;
   name: string;
-  img: {
-    src: string;
-    alt: string;
-  };
+  img: string;
   players: TPlayer[];
 };
 
@@ -111,6 +105,9 @@ export type TMatch = {
 export type TCompetition = {
   id: string;
   name: string;
+  img: string;
+  currentSeason: string;
+  status: "ended" | "active" | "break";
 };
 
 export type MatchesType = {
