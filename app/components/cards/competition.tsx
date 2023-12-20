@@ -7,7 +7,7 @@ export default function Competition({ competition }: { competition: TCompetition
         <div className='flex flex-1 items-center justify-center'>
             <Image src={competition.img} alt={competition.name} height={100} width={100} className='rounded-full' />
         </div>
-        <div className='h-10 flex items-center justify-between px-4'>
+        <div className='h-12 flex items-center justify-between px-4'>
             <h3 className='text-white text-sm'>{competition.name}</h3>
         </div>
     </Link>
