@@ -6,7 +6,10 @@ import { PopupContextType } from "./context";
 import { NavigationType } from "./navigation";
 import { SearchResults } from "./searchResults";
 
+type TVoid = () => void;
+
 export type {
+  TVoid,
   CategoriesType,
   LocationsType,
   LocationType,

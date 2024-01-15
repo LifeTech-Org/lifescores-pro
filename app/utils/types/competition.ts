@@ -6,6 +6,7 @@ type TPlayer = {
   goals: number;
   yellowCards: number;
   redCards: number;
+  assists: number;
 };
 type TeamType = {
   id: string;
@@ -13,6 +14,8 @@ type TeamType = {
   img: string;
   players: TPlayer[];
 };
+
+export type TCompetitionType = "league" | "cup";
 
 // export type MatchTeamType = {
 //   details: {
@@ -108,6 +111,13 @@ export type TCompetition = {
   img: string;
   currentSeason: string;
   status: "ended" | "active" | "break";
+};
+
+export type TNewCompetiton = {
+  type?: TCompetitionType;
+  name: string;
+  description: string;
+  img?: File;
 };
 
 export type MatchesType = {

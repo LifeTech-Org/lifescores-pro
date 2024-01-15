@@ -6,8 +6,6 @@ import {
   getYears,
 } from "@/app/utils/func";
 import {
-  ArrowBack,
-  ArrowForward,
   NavigateNext,
   NavigateBefore,
 } from "@mui/icons-material";
