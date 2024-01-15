@@ -1,3 +1,8 @@
-export default function Matches() {
-    return <div>Matches</div>
+"use client"
+import MatchesLayout from "@/app/components/matches";
+
+export default function AdminMatches() {
+    return <div>
+        <MatchesLayout />
+    </div>
 }

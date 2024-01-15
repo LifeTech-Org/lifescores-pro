@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@/app/components/form/button";
 import { InputText } from "@/app/components/form/text";
 import { competitionTypes } from "@/app/utils/data";
 import { readFile } from "@/app/utils/func/readFile";
@@ -19,7 +20,7 @@ export default function New() {
     const prevStep = () => {
         setStep((_step) => _step - 1);
     }
-    return <section className="flex justify-center">
+    return <section className="flex justify-center px-4">
         <div className="w-full sm:w-80 flex flex-col">
             <h3 className="text-zinc-200 text-lg">Start new competition</h3>
             <h4>With just $5, Enjoy a lifetime access.</h4>
@@ -53,7 +54,7 @@ const Step1 = ({ competition, setCompetition, nextStep }: { competition: TNewCom
                 </li>
             })}
         </ul>
-        <button className="w-full rounded-full bg-blue-800 text-sm text-zinc-200 h-10 mt-4" disabled={!competition.type} onClick={nextStep}>Continue</button>
+        <Button text="Continue" onClick={nextStep} disabled={!competition.type} />
     </div>
 }
 
@@ -73,8 +74,8 @@ const Step2 = ({ competition, setCompetition, nextStep, prevStep }: { competitio
             return { ..._competition, description: e.target.value }
         })} className="w-full border-none rounded-md bg-zinc-900/60 text-sm text-white mt-4 h-24 p-2" placeholder="Description goes here... "  ></textarea>
         <div className="flex gap-2">
-            <button className="w-full rounded-full bg-blue-200 text-sm text-blue-800 h-10 mt-4" onClick={prevStep}>Go back</button>
-            <button className="w-full rounded-full bg-blue-800 text-sm text-zinc-200 h-10 mt-4" disabled={!competition.type} onClick={nextStep}>Continue</button>
+            <Button text="Go back" onClick={prevStep} type="secondary" />
+            <Button text="Continue" onClick={nextStep} />
         </div>
     </form>
 }
@@ -96,8 +97,8 @@ const Step3 = ({ competition, setCompetition, prevStep }: { competition: TNewCom
         <p className="text-xs text-white mt-4">{competition.description}</p>
         <p className="text-xs text-blue-200 text-center mt-12">By clicking continue, you will be redirected to playstack, where you will pay 5m one time fee to manage this competition for our lifetime.</p>
         <div className="flex gap-2 w-full">
-            <button className="w-full rounded-full bg-blue-200 text-sm text-blue-800 h-10 mt-4" onClick={prevStep}>Go back</button>
-            <button className="w-full rounded-full bg-blue-800 text-sm text-zinc-200 h-10 mt-4" disabled={!competition.type} >Continue</button>
+            <Button text="Go back" onClick={prevStep} type="secondary" />
+            <Button text="Continue" onClick={() => console.log("")} />
         </div>
     </div>
 }

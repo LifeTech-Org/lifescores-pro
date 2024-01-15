@@ -1,8 +1,8 @@
-type TPlayer = {
+export type TPlayer = {
   id: string;
   name: string;
   age: number;
-  img: string;
+  imgUrl: string;
   goals: number;
   yellowCards: number;
   redCards: number;
